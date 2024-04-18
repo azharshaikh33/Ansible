@@ -32,3 +32,7 @@
     - name: Printing the value from files
       ansible.builtin.debug:
         msg: "{{game_lives}}"
+
+    - name: Printing the prompt URL
+      ansible.builtin.debug:
+        msg: "{{prompt}}"
