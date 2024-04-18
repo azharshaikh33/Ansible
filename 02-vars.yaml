@@ -24,6 +24,6 @@
       ansible.builtin.debug:
         msg: "{{CMD_URL}}"
 
-    - name: Printing the value from cmd line
+    - name: Printing the value from files
       ansible.builtin.debug:
-        msg: "{{Games_Lives}}"
+        msg: "{{game_lives}}"
