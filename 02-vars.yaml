@@ -35,4 +35,4 @@
 
     - name: Printing the prompt URL
       ansible.builtin.debug:
-        msg: "{{prompt}}"
+        msg: "{{name}}"
