@@ -19,6 +19,6 @@
       vars:
         URL: Task.google.com
 
-    - name: Printing tvalue from cmd line
+    - name: Printing the value from cmd line
       ansible.builtin.debug:
         msg: "{{CMD_URL}}"
