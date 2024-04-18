@@ -12,3 +12,9 @@
         msg: the value of URL is {{URL}}
       vars:
         URL: Task.google.com
+
+    - name: Printing the URL Task
+      ansible.builtin.debug:
+        msg: "{{URL}}"
+      vars:
+        URL: Task.google.com
