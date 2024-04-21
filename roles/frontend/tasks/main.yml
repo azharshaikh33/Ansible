@@ -1,3 +1,6 @@
-- name: Printing the test message
-  ansible.builtin.debug:
-    msg: welcome to frontend server
+- name: Install nginx
+  ansible.builtin.package:
+    name: njinx
+    state: present
+
+- name: Download and Extract {{COMPONENT}}
