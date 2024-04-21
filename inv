@@ -1,5 +1,5 @@
 [frontend]
-172.31.31.243
+frontend.azharpro.internal
 
 [prod]
 172.31.24.120
