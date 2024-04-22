@@ -28,12 +28,8 @@
 
 - name: Injecting the users Schema
   community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/users.js"
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
-    remote_src: yes
-
-- name: Injecting the catalogue Schema
-  community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/catalogue.js"
-    idempotent: yes
-    remote_src: yes
+  loop:
+    - users
+    - catalogue
