@@ -41,12 +41,10 @@
     dest: /tmp
     remote_src: yes
 
-- name: Injecting the Mongodb Users Schema
+- name: Injecting the Mongodb {{item}} Schema
   community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/users.js"
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
-
-- name: Injecting the Mongodb catalogue Schema
-  community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/catalogue.js"
-    idempotent: yes
+  loop:
+    - users
+    - catalogue
