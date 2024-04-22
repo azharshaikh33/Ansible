@@ -14,7 +14,7 @@
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
-- name: Starting service mongod
+- name: Starting mongodb service
   ansible.builtin.service:
     name: mongod
     state: restarted
@@ -30,8 +30,10 @@
   community.mongodb.mongodb_shell:
     file: "/tmp/mongodb-main/users.js"
     idempotent: yes
+    remote_src: yes
 
 - name: Injecting the catalogue Schema
   community.mongodb.mongodb_shell:
     file: "/tmp/mongodb-main/catalogue.js"
     idempotent: yes
+    remote_src: yes
