@@ -27,7 +27,7 @@
     dest: /tmp
     remote_src: yes
 
-- name: Injecting mongo Schema
+- name: mongo Schema
   ansible.builtin.shell: mongo --host mongodb-{{COMPONENT}.roboshop.internal < /tmp/mongodb-main/{{item}}.js
   loop:
       - catalogue
