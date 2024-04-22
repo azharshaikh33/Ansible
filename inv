@@ -1,5 +1,5 @@
 [frontend]
 frontend.azharpro.internal
 
-[mongodv]
+[mongodb]
 mongodb.azharpro.internal
