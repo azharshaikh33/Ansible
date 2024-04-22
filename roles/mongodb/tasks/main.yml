@@ -28,7 +28,7 @@
     remote_src: yes
 
 - name: loading catalogue data
-  ansible.builtin.shell:
+  community.mongodb.mongodb_shell:
     file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
   loop:
