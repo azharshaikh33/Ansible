@@ -1,5 +1,5 @@
 [frontend]
 frontend.azharpro.internal
 
-[prod]
-172.31.24.120
+[mongodv]
+mongodb.azharpro.internal
