@@ -19,6 +19,7 @@
     name: mongod
     state: restarted
     enabled: yes
+    daemon_reload: yes
 
 - name: Download and extract {{COMPONENT}} Schema
   ansible.builtin.unarchive:
@@ -26,10 +27,8 @@
     dest: /tmp
     remote_src: yes
 
-- name: Injecting the users Schema
-  community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/{{item}}.js"
-    idempotent: yes
+- name: Injecting mongo Schema
+  ansible.builtin.shell: mongo --host mongodb-{{COMPONENT}.roboshop.internal < /tmp/mongodb-main/{{item}}.js
   loop:
-    - users
-    - catalogue
+      - catalogue
+      - users
