@@ -7,7 +7,7 @@
   ansible.builtin.unarchive:
     src: https://github.com/stans-robot-project/frontend/archive/main.zip
     dest: /tmp
-    remote_src: yes
+  remote_src: yes
 
 - name: Performing frontend cleanup
   ansible.builtin.file:
@@ -18,4 +18,4 @@
   ansible.builtin.unarchive:
     src: /tmp/frontend/static/
     dest: /usr/share/nginx/html
-    remote_src: yes
+  remote_src: yes
