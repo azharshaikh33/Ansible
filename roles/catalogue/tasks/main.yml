@@ -9,7 +9,7 @@
 - name: Adding user account
   ansible.builtin.user:
     name: "{{APPUSER}}"
-    comment: roboshop
+    comment: roboshop user account
 
 - name: Download and extract catalogue
   ansible.builtin.unarchive:
@@ -19,11 +19,13 @@
 
 - name: Performing catalogue cleanup
   ansible.builtin.file:
-    path: /home/{{APPUSER}}/{{COMPONENT}}
+    path: /home/{{APPUSER}}/{{COMPONENT}}/
     state: absent
 
 - name: Copying catalogue files
   ansible.builtin.copy:
     src: /tmp/{{COMPONENT}}-main/
-    dest: /home/{{APPUSER}}/{{COMPONENT}}
+    dest: /home/{{APPUSER}}/{{COMPONENT}}/
+    owner: "{{APPUSER}}"
+    group: "{{APPUSER}}"
     remote_src: yes
