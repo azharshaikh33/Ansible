@@ -1,11 +1,6 @@
 - name: Configuring the nodejs
   ansible.builtin.shell: dnf module disable nodejs -y && dnf module enable nodejs:18 -y && dnf install nodejs -y
 
-# - name: Installing NodeJS
-  ansible.builtin.package:
-    name: Nodejs
-    state: present
-
 - name: Adding user account
   ansible.builtin.user:
     name: "{{APPUSER}}"
