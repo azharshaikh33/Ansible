@@ -29,7 +29,6 @@
   ansible.builtin.copy:
     src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
-    remote_src: yes
 
 - name: Restarting the service
   ansible.builtin.systemd_service:
