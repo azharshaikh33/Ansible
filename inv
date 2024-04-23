@@ -3,3 +3,6 @@ frontend.azharpro.internal
 
 [mongodb]
 mongodb.azharpro.internal
+
+[catalogue]
+catalogue.azharpro.internal
