@@ -18,3 +18,6 @@ cart.azharpro.internal
 
 [shipping]
 shipping.azharpro.internal
+
+[payment]
+payment.azharpro.internal
