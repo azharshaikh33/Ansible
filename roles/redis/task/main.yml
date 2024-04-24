@@ -1,10 +1,5 @@
-- name: Copying redis repo
-  ansible.builtin.copy:
-    src: redis.repo
-    dest: /etc/yum.repos.d/redis.repo
-
 - name: Configuring the redis module
-  ansible.builtin.shell: dnf module enable redis:remi-6.2 -y
+  ansible.builtin.shell: dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y && dnf module enable redis:remi-6.2 -y
 
 - name: Install redis
   ansible.builtin.package:
