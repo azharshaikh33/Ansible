@@ -1,17 +1,4 @@
-- name: Install maven
-  ansible.builtin.package:
-    name: maven
-    state: present
-
-- name: Calling create-user role from common
+- name: Calling maven task from common
   ansible.builtin.include_role:
     name: common
-    tasks_from: create-user
-
-- name: Calling download and extract role from common
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: download
-
-- name: Configuring the nodejs
-  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+    tasks_from: maven
