@@ -1,10 +1,6 @@
 - name: Configuring the nodejs
   ansible.builtin.shell: dnf module disable nodejs -y && dnf module enable nodejs:18 -y && dnf install nodejs -y
 
-- name: Generating node modules
-  community.general.npm:
-     path: /home/{{APPUSER}}/{{COMPONENT}}/
-
 - name: Calling create user role from common
   ansible.builtin.include_role:
     name: common
