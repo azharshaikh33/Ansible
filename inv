@@ -6,3 +6,6 @@ mongodb.azharpro.internal
 
 [catalogue]
 catalogue.azharpro.internal
+
+[redis]
+redis.azharpro.internal
