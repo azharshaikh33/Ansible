@@ -1,9 +1,9 @@
-- name: Copying {{COMPONENT}} repo
+- name: Copying mongodb repo
   ansible.builtin.copy:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongodb.repo
 
-- name: Install {{COMPONENT}}
+- name: Install mongodb
   ansible.builtin.package:
     name: mongodb-org
     state: present
@@ -14,14 +14,14 @@
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
-- name: Starting {{COMPONENT}} service
+- name: Starting mongodb service
   ansible.builtin.service:
     name: mongod
     state: restarted
     enabled: yes
     daemon_reload: yes
 
-- name: Download and extract {{COMPONENT}} Schema
+- name: Download and extract mongodb Schema
   ansible.builtin.unarchive:
     src: https://github.com/stans-robot-project/mongodb/archive/main.zip
     dest: /tmp

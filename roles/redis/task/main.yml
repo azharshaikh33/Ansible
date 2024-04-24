@@ -1,0 +1,25 @@
+- name: Copying redis repo
+  ansible.builtin.copy:
+    src: redis.repo
+    dest: /etc/yum.repos.d/redis.repo
+
+- name: Configuring the redis module
+  ansible.builtin.shell: dnf module enable redis:remi-6.2 -y
+
+- name: Install redis
+  ansible.builtin.package:
+    name: redis
+    state: present
+
+- name: Replace the listening IP
+  ansible.builtin.replace:
+    path: /etc/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: Starting mongodb service
+  ansible.builtin.service:
+    name: redis
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
