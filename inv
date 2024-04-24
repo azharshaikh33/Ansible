@@ -16,6 +16,9 @@ user.azharpro.internal
 [cart]
 cart.azharpro.internal
 
+[mysql]
+mysql.azharpro.internal
+
 [shipping]
 shipping.azharpro.internal
 
