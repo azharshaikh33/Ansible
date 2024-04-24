@@ -9,3 +9,9 @@ catalogue.azharpro.internal
 
 [redis]
 redis.azharpro.internal
+
+[user]
+user.azharpro.internal
+
+[cart]
+cart.azharpro.internal
