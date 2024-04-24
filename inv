@@ -19,5 +19,8 @@ cart.azharpro.internal
 [shipping]
 shipping.azharpro.internal
 
+[rabbitmq]
+rabbitmq.azharpro.internal
+
 [payment]
 payment.azharpro.internal
