@@ -30,7 +30,7 @@
 
 - name: Install application dependencies
   ansible.builtin.pip:
-    name: /home/{{APPUSER}}/{{COMPONENT}}/requirement.txt
+    requirement: /home/{{APPUSER}}/{{COMPONENT}}/requirement.txt
     executable: pip3
 
 - name: Calling config-svc task from common
