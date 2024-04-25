@@ -15,6 +15,12 @@
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
+- name: Enabling {{COMPONENT}} - visibility
+  ansible.builtin.replace:
+    path: /etc/redis/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0' 
+
 - name: Starting redis service
   ansible.builtin.service:
     name: redis
