@@ -9,7 +9,11 @@
 - name: Calling download and extract role from common
   ansible.builtin.include_role:
     name: common
-    tasks_from: download
+    tasks_from: download\
+
+- name: Doing npm install
+  community.general.npm:
+    path: /home/{{APPUSER}}/{{COMPONENT}}
 
 - name: Calling config service role from common
   ansible.builtin.include_role:
