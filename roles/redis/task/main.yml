@@ -1,19 +1,19 @@
-- name: Configuring {{COMPONENT}} repo
+- name: Configuring the redis module
   ansible.builtin.shell: dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
 
-- name: Enabling {{COMPONENT}} 6.2 repo
+- name: Enabling the redis module
   ansible.builtin.shell: dnf module enable redis:remi-6.2 -y
 
-- name: Installing {{COMPONENT}}
+- name: Install redis
   ansible.builtin.package:
     name: redis
     state: present
 
-- name: Enabling {{COMPONENT}} visibility
+- name: Replace the listening IP
   ansible.builtin.replace:
     path: /etc/redis.conf
     regexp: '127.0.0.1'
-    replace: '0.0.0.0' 
+    replace: '0.0.0.0'
 
 - name: Enabling {{COMPONENT}} - visibility
   ansible.builtin.replace:
@@ -21,11 +21,8 @@
     regexp: '127.0.0.1'
     replace: '0.0.0.0' 
 
-- name: Starting {{COMPONENT}}
-  ansible.builtin.systemd_service:
-    state: started
+- name: Starting redis service
+  ansible.builtin.service:
     name: redis
-    enabled: yes 
-
-- name: Configuring Name
-  ansible.builtin.shell: set-hostname {{COMPONENT}}
+    state: started
+    enabled: yes
