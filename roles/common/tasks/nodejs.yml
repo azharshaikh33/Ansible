@@ -9,7 +9,7 @@
 - name: Calling download and extract role from common
   ansible.builtin.include_role:
     name: common
-    tasks_from: download\
+    tasks_from: download
 
 - name: Doing npm install
   community.general.npm:
