@@ -1,5 +1,5 @@
-Name: Configuring Roboshop project
-become: true
-hosts: localhost
-roles:
-  -role: "{{COMPONENT}}"
+- Name: Configuring Roboshop project
+  become: true
+  hosts: localhost
+  roles:
+    -role: "{{COMPONENT}}"
