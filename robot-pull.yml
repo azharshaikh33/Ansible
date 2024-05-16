@@ -1,5 +1,5 @@
-- name: Configuring Roboshop project
+- name: Configuring Roboshop Project
   become: true
-  hosts: localhost
+  hosts: localhost         # This defines platbook will be executed on the top of the same machine only.
   roles:
-    -role: "{{COMPONENT}}"
+    - role: "{{COMPONENT}}"                      # Name of the role to run 
