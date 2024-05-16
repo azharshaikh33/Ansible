@@ -9,16 +9,25 @@
     dest: /tmp
     remote_src: yes
 
-- name: Performing frontend cleanup
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
+# Uncomment only when you need download the artifacts from github
 
-- name: Copying frontend code
-  ansible.builtin.copy:
-    src: /tmp/frontend-main/static
+# - name: Performing frontend cleanup
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: absent
+
+# - name: Copying frontend code
+#   ansible.builtin.copy:
+#     src: /tmp/frontend-main/static
+#     dest: /usr/share/nginx/html
+#     remote_src: yes
+
+- name: Download and extract from Nexus
+  ansible.builtin.unarchive:
+    src: http://172.31.13.151:8081/repository/{{COMPONENT}}/{{COMPONENT}}-{{VERSION}}.zip
     dest: /usr/share/nginx/html
     remote_src: yes
+
 
 - name: Copying roboshop config file
   ansible.builtin.template:
@@ -26,7 +35,7 @@
     dest: /etc/nginx/default.d/roboshop.conf
   notify: Restart Nginx
 
-- name: Start nginc
+- name: Start nginx
   ansible.builtin.service:
     name: nginx
     state: started
