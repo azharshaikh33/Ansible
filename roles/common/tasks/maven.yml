@@ -18,10 +18,10 @@
     name: common
     tasks_from: download-from-nexus
 
-- name: Configuring the nodejs
-  ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar
-  args:
-    chdir: /home/{{APPUSER}}/{{COMPONENT}}
+# - name: Generating the Aartifacts
+#   ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar
+#   args:
+#     chdir: /home/{{APPUSER}}/{{COMPONENT}}
 
 - name: Calling config-svc role from common
   ansible.builtin.include_role:
